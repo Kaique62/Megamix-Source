@@ -46,7 +46,7 @@ class MainMenuState extends MusicBeatState
 
 	public static var nightly:String = "";
 
-	public static var kadeEngineVer:String = "1.5.1" + nightly;
+	public static var kadeEngineVer:String = "MEGAMIX V1" + nightly;
 	public static var gameVer:String = "0.2.7.1";
 
 	var magenta:FlxSprite;
@@ -177,6 +177,10 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
+   		#if mobileC
+		addVirtualPad(UP_DOWN, A_B);
+		#end
+
 		super.create();
 	}
 
@@ -207,13 +211,13 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 
-			if (FlxG.keys.justPressed.UP)
+			if (controls.UP_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1);
 			}
 
-			if (FlxG.keys.justPressed.DOWN)
+			if (controls.DOWN_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(1);

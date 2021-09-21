@@ -24,19 +24,18 @@ class ModMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Tutorial']				
-
+		['Headache', 'Nerves', 'Release', 'Fading']			
 	];
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['dad', 'bf', 'gf']									
+		['garcello', 'bf', 'gf']									
 	];
 
 	var weekNames:Array<String> = [
-		"how to funk"		
+		"SMOKE 'EM OUT STRUGGLE"	
 	];
 
 	var txtWeekTitle:FlxText;
@@ -54,6 +53,7 @@ class ModMenuState extends MusicBeatState
 	var sprDifficulty:FlxSprite;
 	var leftArrow:FlxSprite;
 	var rightArrow:FlxSprite;
+	var yellowBG:FlxSprite;
 
 	override function create()
 	{
@@ -82,7 +82,7 @@ class ModMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
+		yellowBG = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFF008000);
 
 		grpWeekText = new FlxTypedGroup<ModMenuItem>();
 		add(grpWeekText);
@@ -146,6 +146,10 @@ class ModMenuState extends MusicBeatState
 				case 'parents-christmas':
 					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.9));
 					weekCharacterThing.updateHitbox();
+				case 'garcello':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.6));
+					weekCharacterThing.updateHitbox();
+					weekCharacterThing.y += 90;					
 			}
 
 			grpWeekCharacters.add(weekCharacterThing);
@@ -168,7 +172,6 @@ class ModMenuState extends MusicBeatState
 		sprDifficulty.animation.addByPrefix('easy', 'EASY');
 		sprDifficulty.animation.addByPrefix('normal', 'NORMAL');
 		sprDifficulty.animation.addByPrefix('hard', 'HARD');
-		sprDifficulty.animation.addByPrefix('alt', 'ALT');		
 		sprDifficulty.animation.play('easy');
 		changeDifficulty();
 
@@ -301,8 +304,7 @@ class ModMenuState extends MusicBeatState
 					diffic = '-easy';
 				case 2:
 					diffic = '-hard';
-				case 3:
-					diffic = '-alt';					
+					
 			}
 
 			PlayState.storyDifficulty = curDifficulty;
@@ -323,7 +325,7 @@ class ModMenuState extends MusicBeatState
 
 		if (curDifficulty < 0)
 			curDifficulty = 2;
-		if (curDifficulty > 3)
+		if (curDifficulty > 2)
 			curDifficulty = 0;
 
 		sprDifficulty.offset.x = 0;
@@ -339,9 +341,7 @@ class ModMenuState extends MusicBeatState
 			case 2:
 				sprDifficulty.animation.play('hard');
 				sprDifficulty.offset.x = 20;
-			case 3:
-				sprDifficulty.animation.play('alt');
-				sprDifficulty.offset.x = 0;				
+			
 		}
 
 		sprDifficulty.alpha = 0;
@@ -370,6 +370,14 @@ class ModMenuState extends MusicBeatState
 			curWeek = weekData.length - 1;
 
 		var bullShit:Int = 0;
+
+		switch (curWeek)
+		{
+			case 0:
+				yellowBG.color = FlxColor.GREEN;
+		//	case 1:
+		//		yellowBG.color = FlxColor.RED;		
+		}
 
 		for (item in grpWeekText.members)
 		{
