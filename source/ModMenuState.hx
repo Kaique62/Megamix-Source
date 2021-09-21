@@ -25,7 +25,8 @@ class ModMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Headache', 'Nerves', 'Release', 'Fading'],
-		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],			
+		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],	
+                ['Unleashed'],		
 	];
 	var curDifficulty:Int = 1;
 
@@ -33,12 +34,14 @@ class ModMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['garcello', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],									
+		['dad', 'bf', 'gf'],	
+                ['', 'bf', 'gf'],								
 	];
 
 	var weekNames:Array<String> = [
 		"SMOKE 'EM OUT STRUGGLE",
-		"Tales from the Raveyard",	
+		"Tales from the Raveyard",
+     	        "Unleashed ft. AtsuOver & RageMiner",
 	];
 
 	var txtWeekTitle:FlxText;
