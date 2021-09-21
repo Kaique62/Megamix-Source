@@ -582,7 +582,34 @@ class Character extends FlxSprite
 			addOffset("singDOWN", 0, 0);
 			addOffset("garTightBars", 0, 0);
 
-			playAnim('idle');				
+			playAnim('idle');
+		//Myra
+		case 'myra':
+			tex = Paths.getSparrowAtlas('myra/myra_assets');
+			frames = tex;
+
+			animation.addByPrefix('idle', "MyraIdle", 24, false);
+			animation.addByPrefix('singUP', "MyraUp", 24, false);
+			animation.addByPrefix('singRIGHT', 'MyraRight', 24, false);
+			animation.addByPrefix('singLEFT', 'MyraLeft', 24, false);
+			animation.addByPrefix('singDOWN', "MyraDown", 24, false);
+
+			animation.addByPrefix('singUP-alt', 'MyraAAA', 24, false);
+			animation.addByPrefix('singRIGHT-alt', 'MyraRight', 24, false);
+			animation.addByPrefix('singLEFT-alt', 'MyraLaugh', 24, false);
+			animation.addByPrefix('singDOWN-alt', 'MyraDown', 24, false);
+
+			addOffset('idle');
+			addOffset("singUP", 0, 0);
+			addOffset("singRIGHT", 0);
+			addOffset("singLEFT", 0);
+			addOffset("singDOWN", 0, 0);
+			addOffset("singUP-alt", 0, 0);
+			addOffset("singRIGHT-alt", 0);
+			addOffset("singLEFT-alt", 0);
+			addOffset("singDOWN-alt", 0, 0);
+
+			playAnim('idle');							
 		}
 
 		dance();

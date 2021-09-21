@@ -24,18 +24,21 @@ class ModMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	var weekData:Array<Dynamic> = [
-		['Headache', 'Nerves', 'Release', 'Fading']			
+		['Headache', 'Nerves', 'Release', 'Fading'],
+		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],			
 	];
 	var curDifficulty:Int = 1;
 
 	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true];
 
 	var weekCharacters:Array<Dynamic> = [
-		['garcello', 'bf', 'gf']									
+		['garcello', 'bf', 'gf'],
+		['dad', 'bf', 'gf'],									
 	];
 
 	var weekNames:Array<String> = [
-		"SMOKE 'EM OUT STRUGGLE"	
+		"SMOKE 'EM OUT STRUGGLE",
+		"Tales from the Raveyard",	
 	];
 
 	var txtWeekTitle:FlxText;
@@ -374,9 +377,9 @@ class ModMenuState extends MusicBeatState
 		switch (curWeek)
 		{
 			case 0:
-				yellowBG.color = FlxColor.GREEN;
-		//	case 1:
-		//		yellowBG.color = FlxColor.RED;		
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFF008000);
+			case 1:
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFF800080);		
 		}
 
 		for (item in grpWeekText.members)

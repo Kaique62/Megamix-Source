@@ -2,3 +2,7 @@ Headache:garcello:1
 Nerves:garcellotired:1
 Release:garcellodead:1
 Fading:garcelloghosty:1
+Cackle:myra:2
+Bones:myra:2
+Mystic:myra:2
+Hocus-Pocus:myra:2

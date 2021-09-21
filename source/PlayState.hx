@@ -170,6 +170,8 @@ class PlayState extends MusicBeatState
 	var upperBoppers:FlxSprite;
 	var bottomBoppers:FlxSprite;
 	var santa:FlxSprite;
+	var graves_assets:FlxSprite;
+	var ghosts_assets:FlxSprite;
 
 	var fc:Bool = true;
 
@@ -355,7 +357,15 @@ class PlayState extends MusicBeatState
 			case 'release':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('release/releaseDialogue'));
 			case 'fading':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('fading/fadingDialogue'));	
+				dialogue = CoolUtil.coolTextFile(Paths.txt('fading/fadingDialogue'));
+			case 'cackle':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('cackle/cackleDialogue'));
+			case 'bones':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('bones/bonesDialogue'));
+			case 'mystic':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('mystic/mysticDialogue'));
+			case 'hocus-pocus':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('hocus-pocus/hocus-pocusDialogue'));					
 		}
 
 		switch(SONG.stage)
@@ -783,7 +793,58 @@ class PlayState extends MusicBeatState
 							corpse.active = false;
 							add(corpse);
   
-					  }				
+					  }		
+			case 'graveyard': 
+			{
+					curStage = 'graveyard';
+
+					var bg:FlxSprite = new FlxSprite(-200, -220);
+					bg.loadGraphic(Paths.image("myra/graveyard"));
+					add(bg);
+					bg.updateHitbox();
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.85, 0.85);
+				}
+			case 'raveyard1': 
+			{
+					curStage = 'raveyard1';
+
+
+					var bg:FlxSprite = new FlxSprite(-200, -220);
+					bg.loadGraphic(Paths.image("myra/graveyard"));
+					add(bg);
+					bg.updateHitbox();
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.85, 0.85);
+
+					graves_assets = new FlxSprite(-200, -220);
+					graves_assets.frames = Paths.getSparrowAtlas('myra/graves_assets');
+					graves_assets.animation.addByPrefix('idle', "Graves", 24, false);
+					graves_assets.antialiasing = true;
+					graves_assets.scrollFactor.set(0.85, 0.85);
+					graves_assets.updateHitbox();
+					add(graves_assets);
+			}
+			case 'hocus-pocus': 
+			{
+					curStage = 'raveyard2';
+
+
+					var bg:FlxSprite = new FlxSprite(-200, -220);
+					bg.loadGraphic(Paths.image("myra/graveyard"));
+					add(bg);
+					bg.updateHitbox();
+					bg.antialiasing = true;
+					bg.scrollFactor.set(0.85, 0.85);
+
+					ghosts_assets = new FlxSprite(-200, -220);
+					ghosts_assets.frames = Paths.getSparrowAtlas('myra/ghosts_assets');
+					ghosts_assets.animation.addByPrefix('idle', "Ghosts", 24, false);
+					ghosts_assets.antialiasing = true;
+					ghosts_assets.scrollFactor.set(0.85, 0.85);
+					ghosts_assets.updateHitbox();
+					add(ghosts_assets);
+				}					  		
 			default:
 			{
 					defaultCamZoom = 0.9;
@@ -1193,7 +1254,15 @@ class PlayState extends MusicBeatState
 					case 'release':
 						garIntro(doof);
 					case 'fading':
-						garIntro(doof);					
+						garIntro(doof);
+					case 'cackle':
+						schoolIntro(doof);
+					case 'bones':
+						schoolIntro(doof);
+					case 'mystic':
+						schoolIntro(doof);
+					case 'hocus-pocus':
+						schoolIntro(doof);											
 				default:
 					startCountdown();
 			}
@@ -3759,6 +3828,14 @@ class PlayState extends MusicBeatState
 						if (FlxG.random.bool(10) && fastCarCanDrive)
 							fastCarDrive();
 				}
+				case 'raveyard1':
+					if(FlxG.save.data.distractions){
+					graves_assets.animation.play('idle', true);
+					}
+				case 'raveyard2':
+					if(FlxG.save.data.distractions){
+					ghosts_assets.animation.play('idle', true);
+					}				
 			case "philly":
 				if(FlxG.save.data.distractions){
 					if (!trainMoving)

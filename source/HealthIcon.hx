@@ -41,7 +41,9 @@ class HealthIcon extends FlxSprite
 		animation.add('garcello', [24, 25], 0, false, isPlayer);
 		animation.add('garcellotired', [26, 27], 0, false, isPlayer);
 		animation.add('garcellodead', [28, 29], 0, false, isPlayer);
-		animation.add('garcelloghosty', [29, 29], 0, false, isPlayer);		
+		animation.add('garcelloghosty', [29, 29], 0, false, isPlayer);
+		//myra
+		animation.add('myra', [30, 31], 0, false, isPlayer);		
 		animation.play(char);
 
 		switch(char)

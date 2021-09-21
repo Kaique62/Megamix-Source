@@ -140,6 +140,10 @@ class FreeplaySelect extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+	
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
+		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		if (controls.ACCEPT)
 			{

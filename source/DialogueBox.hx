@@ -48,7 +48,19 @@ class DialogueBox extends FlxSpriteGroup
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'fading':
 				FlxG.sound.playMusic(Paths.music('city_ambience'), 0);
-				FlxG.sound.music.fadeIn(1, 0, 0.8);				
+				FlxG.sound.music.fadeIn(1, 0, 0.8);	
+			case 'cackle':
+				FlxG.sound.playMusic(Paths.music('MyraDia1'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'bones':
+				FlxG.sound.playMusic(Paths.music('MyraDia1'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'mystic':
+				FlxG.sound.playMusic(Paths.music('MyraDia2'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);
+			case 'hocus-pocus':
+				FlxG.sound.playMusic(Paths.music('MyraDia2'), 0);
+				FlxG.sound.music.fadeIn(1, 0, 0.8);							
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFFB3DFd8);
@@ -115,6 +127,26 @@ class DialogueBox extends FlxSpriteGroup
 				box.frames = Paths.getSparrowAtlas('garcello/garBox');
 				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
 				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);	
+			case 'cackle':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel' , 'shared');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'bones':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel', 'shared');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'mystic':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel', 'shared');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
+			case 'hocus-pocus':
+				hasDialog = true;
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel', 'shared');
+				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
+				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);				
 		}
 
 		this.dialogueList = dialogueList;
@@ -204,7 +236,61 @@ class DialogueBox extends FlxSpriteGroup
 			add(portraitRight);
 			portraitRight.visible = false;
 			}
-	
+	if (PlayState.SONG.song.toLowerCase()=='cackle')	
+	{	
+		portraitLeft = new FlxSprite(-50, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('myra/myra_dialogue_1');
+		portraitLeft.animation.addByPrefix('enter', 'myradialoguea', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
+		portraitLeft.updateHitbox();
+		portraitLeft.scrollFactor.set();
+		add(portraitLeft);
+		portraitLeft.visible = false;
+	}
+if (PlayState.SONG.song.toLowerCase()=='bones')	
+	{	
+		portraitLeft = new FlxSprite(-50, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('myra/myra_dialogue_2');
+		portraitLeft.animation.addByPrefix('enter', 'myradialogueb', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
+		portraitLeft.updateHitbox();
+		portraitLeft.scrollFactor.set();
+		add(portraitLeft);
+		portraitLeft.visible = false;
+	}
+if (PlayState.SONG.song.toLowerCase()=='mystic')	
+	{	
+		portraitLeft = new FlxSprite(-50, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('myra/myra_dialogue_3');
+		portraitLeft.animation.addByPrefix('enter', 'myradialoguec', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
+		portraitLeft.updateHitbox();
+		portraitLeft.scrollFactor.set();
+		add(portraitLeft);
+		portraitLeft.visible = false;
+	}
+if (PlayState.SONG.song.toLowerCase()=='hocus-pocus')	
+	{	
+		portraitLeft = new FlxSprite(-50, 40);
+		portraitLeft.frames = Paths.getSparrowAtlas('myra/myra_dialogue_4');
+		portraitLeft.animation.addByPrefix('enter', 'myradialogued', 24, false);
+		portraitLeft.setGraphicSize(Std.int(portraitLeft.width * PlayState.daPixelZoom * 0.2));
+		portraitLeft.updateHitbox();
+		portraitLeft.scrollFactor.set();
+		add(portraitLeft);
+		portraitLeft.visible = false;
+	}
+	if (PlayState.SONG.song.toLowerCase()=='cackle' || PlayState.SONG.song.toLowerCase()=='bones' || PlayState.SONG.song.toLowerCase()=='mystic' || PlayState.SONG.song.toLowerCase()=='hocus-pocus')	
+		{
+			portraitRight = new FlxSprite(420, 50);
+			portraitRight.frames = Paths.getSparrowAtlas('myra/bf_dialogue');
+			portraitRight.animation.addByPrefix('enter', 'bfdialogue', 24, false);
+			portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.2));
+			portraitRight.updateHitbox();
+			portraitRight.scrollFactor.set();
+			add(portraitRight);
+			portraitRight.visible = false;
+		}	
 		box.animation.play('normalOpen');
 		box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 		box.updateHitbox();
