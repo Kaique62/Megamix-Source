@@ -43,8 +43,19 @@ class HealthIcon extends FlxSprite
 		animation.add('garcellodead', [28, 29], 0, false, isPlayer);
 		animation.add('garcelloghosty', [29, 29], 0, false, isPlayer);
 		//myra
-		animation.add('myra', [30, 31], 0, false, isPlayer);		
+		animation.add('myra', [30, 31], 0, false, isPlayer);
+		//Sonic.exe
+		animation.add('sonic', [32, 33], 0, false, isPlayer);
+		animation.add('sonicfun', [34, 35], 0, false, isPlayer);
+		animation.add('sonicLordX', [36, 37], 0, false, isPlayer);
+		//monika
+		animation.add('monika', [32, 33], 0, false, isPlayer);
+		animation.add('monika-angry', [34, 35], 0, false, isPlayer);
+		animation.add('bf-pixelangry', [21, 21], 0, false, isPlayer);
+		animation.add('duet', [21, 21], 0, false, isPlayer);	
+		animation.add('playablesenpai', [21, 21], 0, false, isPlayer);						
 		animation.play(char);
+		scrollFactor.set();
 
 		switch(char)
 		{
@@ -52,7 +63,6 @@ class HealthIcon extends FlxSprite
 				antialiasing = false;
 		}
 
-		scrollFactor.set();
 	}
 
 	override function update(elapsed:Float)
@@ -60,6 +70,8 @@ class HealthIcon extends FlxSprite
 		super.update(elapsed);
 
 		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+			{
+				setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+			}
 	}
 }

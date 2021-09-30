@@ -61,6 +61,7 @@
 		<library name="week4"    preload="true" />
 		<library name="week5"    preload="true" />
 		<library name="week6"    preload="true" />
+		<library name="exe"      preload="true" />
 	</section>
 	
 	<section if="NO_PRELOAD_ALL">
@@ -73,6 +74,7 @@
 		<library name="week4"    preload="false" />
 		<library name="week5"    preload="false" />
 		<library name="week6"    preload="false" />
+		<library name="exe"   	 preload="false" />
 	</section>
 	
 	<assets path="assets/songs"    library="songs"    exclude="*.ogg" if="web"/>
@@ -93,7 +95,9 @@
 	<assets path="assets/week5"    library="week5"    exclude="*.mp3" unless="web"/>
 	<assets path="assets/week6"    library="week6"    exclude="*.ogg" if="web"/>
 	<assets path="assets/week6"    library="week6"    exclude="*.mp3" unless="web"/>
-	
+	<assets path="assets/exe"      library="exe"	  exclude="*.ogg" if="web"/>
+	<assets path="assets/exe"      library="exe"   	  exclude="*.mp3" unless="web"/>
+
 	<assets path='example_mods' rename='mods' embed='false'/>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
 	<assets path='LICENSE' rename='LICENSE.txt' />
@@ -123,6 +127,8 @@
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc" if="windows"/>
 	<haxelib name="linc_luajit"/>
+	<haxelib name="actuate" />
+	<haxelib name="extension-webm"/>
 
 	<architecture name="armv7" exclude="arm64" if="android" />
 	<architecture name="x86" if="android" />

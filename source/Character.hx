@@ -1,5 +1,6 @@
 package;
 
+import flixel.addons.effects.FlxTrail;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.animation.FlxBaseAnimation;
@@ -609,7 +610,220 @@ class Character extends FlxSprite
 			addOffset("singLEFT-alt", 0);
 			addOffset("singDOWN-alt", 0, 0);
 
-			playAnim('idle');							
+			playAnim('idle');
+	//Sonic.exe
+			case 'sonic':
+
+				tex = Paths.getSparrowAtlas('characters/SonicAssets');
+				frames = tex;
+				animation.addByPrefix('idle', 'SONICmoveIDLE', 24);
+				animation.addByPrefix('singUP', 'SONICmoveUP', 24);
+				animation.addByPrefix('singRIGHT', 'SONICmoveRIGHT', 24);
+				animation.addByPrefix('singDOWN', 'SONICmoveOWN', 24); //Matheus Pilantra
+				animation.addByPrefix('singLEFT', 'SONICmoveLEFT', 24);
+
+				animation.addByPrefix('singDOWN-alt', 'SONIClaugh', 24);
+				
+				animation.addByPrefix('singLAUGH', 'SONIClaugh', 24);
+
+	
+				addOffset('idle');
+				addOffset("singUP", 2, 47);
+				addOffset("singRIGHT", 13,49);
+				addOffset("singLEFT",172, -16);
+				addOffset("singDOWN",96, -20);
+				addOffset("singLAUGH", 83, -33);
+
+				addOffset("singDOWN-alt", 70, -27);
+	
+				playAnim('idle');
+			case 'sonicfun':
+
+				tex = Paths.getSparrowAtlas('characters/SonicFunAssets');
+				frames = tex;
+				animation.addByPrefix('idle', 'SONICFUNIDLE', 24);
+				animation.addByPrefix('singUP', 'SONICFUNUP', 24);
+				animation.addByPrefix('singRIGHT', 'SONICFUNRIGHT', 24);
+				animation.addByPrefix('singDOWN', 'SONICFUOWN', 24);
+				animation.addByPrefix('singLEFT', 'SONICFUNLEFT', 24);
+	
+				addOffset('idle', -21, 189);
+				addOffset("singUP", 22, 126);
+				addOffset("singRIGHT", -80, 43);
+				addOffset("singLEFT", 393, -60);
+				addOffset("singDOWN", 15, -67);
+					
+	
+				playAnim('idle');
+			case 'sonicLordX':
+				frames = Paths.getSparrowAtlas('characters/SONIC_X');
+				animation.addByPrefix('idle', 'sonicX IDLE', 24, false);
+				animation.addByPrefix('singUP', 'sonicx UP', 24, false);
+				animation.addByPrefix('singDOWN', 'sonicx OWN', 24, false);
+				animation.addByPrefix('singLEFT', 'sonicx LEFT', 24, false);
+				animation.addByPrefix('singRIGHT', 'sonicx RIGHT', 24, false);
+					
+				addOffset('idle');
+				addOffset("singUP", 5, 92);
+				addOffset("singRIGHT", 24, -38);
+				addOffset("singLEFT",51, -15);
+				addOffset("singDOWN", 16, -62);
+	
+				antialiasing = true;
+
+				playAnim('idle');
+			//Monika
+			case 'monika':
+				frames = Paths.getSparrowAtlas('characters/monika');
+				animation.addByPrefix('idle', 'Monika Idle', 24, false);
+				animation.addByPrefix('singUP', 'Monika UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'Monika LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'Monika RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'Monika DOWN NOTE', 24, false);
+
+				animation.addByPrefix('idle-alt', 'Angry Senpai Idle', 24, false);
+				animation.addByPrefix('singUP-alt', 'Angry Senpai UP NOTE', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'Angry Senpai DOWN NOTE', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'Angry Senpai LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'Angry Senpai RIGHT NOTE', 24, false);
+
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				antialiasing = false;
+				case 'duet':
+					frames = Paths.getSparrowAtlas('characters/Duet_Assets', 'shared');
+					animation.addByPrefix('idle', 'Duet Idle', 24, false);
+					animation.addByPrefix('singUP', 'Duet Monika UP NOTE', 24, false);
+					animation.addByPrefix('singLEFT', 'Duet Monika LEFT NOTE', 24, false);
+					animation.addByPrefix('singRIGHT', 'Duet Monika RIGHT NOTE', 24, false);
+					animation.addByPrefix('singDOWN', 'Duet Monika DOWN NOTE', 24, false);
+	
+					animation.addByPrefix('singUP-alt', 'Duet Senpai UP NOTE', 24, false);
+					animation.addByPrefix('singDOWN-alt', 'Duet Senpai DOWN NOTE', 24, false);
+					animation.addByPrefix('singLEFT-alt', 'Duet Senpai LEFT NOTE', 24, false);
+					animation.addByPrefix('singRIGHT-alt', 'Duet Senpai RIGHT NOTE', 24, false);
+	
+					animation.addByPrefix('cutsceneidle', 'cutscene idle', 24, false);
+					animation.addByPrefix('cutscenetransition', 'cutscene transition', 24, false);
+	
+
+	
+					playAnim('idle');
+	
+					setGraphicSize(Std.int(width * 6));
+					updateHitbox();
+	
+					antialiasing = false;
+	
+				case 'monika-angry':
+					frames = Paths.getSparrowAtlas('characters/Monika_Finale', 'shared');
+					animation.addByPrefix('idle', 'MONIKA IDLE', 24, false);
+					animation.addByPrefix('singUP', 'MONIKA UP NOTE', 24, false);
+					animation.addByPrefix('singLEFT', 'MONIKA LEFT NOTE', 24, false);
+					animation.addByPrefix('singRIGHT', 'MONIKA RIGHT NOTE', 24, false);
+					animation.addByPrefix('singDOWN', 'MONIKA DOWN NOTE', 24, false);
+	
+					animation.addByPrefix('singUP-alt', 'MONIKA UP GLITCH', 24, false);
+					animation.addByPrefix('singLEFT-alt', 'MONIKA LEFT GLITCH', 24, false);
+					animation.addByPrefix('singRIGHT-alt', 'MONIKA RIGHT GLITCH', 24, false);
+					animation.addByPrefix('singDOWN-alt', 'MONIKA DOWN GLITCH', 24, false);
+	
+
+	
+					playAnim('idle');
+	
+					setGraphicSize(Std.int(width * 6));
+					updateHitbox();
+	
+					antialiasing = false;
+			case 'playablesenpai':
+				frames = Paths.getSparrowAtlas('characters/playablesenpai', 'shared');
+				animation.addByPrefix('idle', 'Senpai Idle', 24, false);
+				animation.addByPrefix('singUP', 'SENPAI UP NOTE', 24, false);
+				animation.addByPrefix('singLEFT', 'SENPAI LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHT', 'SENPAI RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWN', 'SENPAI DOWN NOTE', 24, false);
+				animation.addByPrefix('singUPmiss', 'miss Senpai UP NOTE', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'miss Senpai LEFT NOTE', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'miss Senpai RIGHT NOTE', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'miss Senpai DOWN NOTE', 24, false);
+
+				animation.addByPrefix('firstDeath', "BF Dies pixel", 24, false);
+				animation.addByPrefix('deathLoop', "senpai retry", 24, true);
+				animation.addByPrefix('deathConfirm', "RETRY CONFIRM", 24, false);
+
+				//I'M TILTED I HAD T OMODIDFY SENPAI'S STUPD PECKIN SPRITE SHEET JUST SO HE DIES WITHOUT CRASHING THE GAME, IF I DIDN'T HAVE LUMATIC ON MY SIDE I WOULD OF LOST IT HOURS AGO SO THANK YOU STUPID CODE FOR NOT WORKING SMILE
+				//Lumatic says "Jorge and Senpai have a big forehead tho"
+
+
+	
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				flipX = true;
+	
+				playAnim('idle');
+	
+				antialiasing = false;
+				
+			case 'bf-pixelangry':
+					frames = Paths.getSparrowAtlas('characters/bfPixelangry', 'shared');
+					animation.addByPrefix('idle', 'BF IDLE', 24, false);
+					animation.addByPrefix('singUP', 'BF UP NOTE', 24, false);
+					animation.addByPrefix('singLEFT', 'BF LEFT NOTE', 24, false);
+					animation.addByPrefix('singRIGHT', 'BF RIGHT NOTE', 24, false);
+					animation.addByPrefix('singDOWN', 'BF DOWN NOTE', 24, false);
+					animation.addByPrefix('singUPmiss', 'BF UP MISS', 24, false);
+					animation.addByPrefix('singLEFTmiss', 'BF LEFT MISS', 24, false);
+					animation.addByPrefix('singRIGHTmiss', 'BF RIGHT MISS', 24, false);
+					animation.addByPrefix('singDOWNmiss', 'BF DOWN MISS', 24, false);
+	
+
+	
+					setGraphicSize(Std.int(width * 6));
+					updateHitbox();
+	
+					playAnim('idle');
+	
+					width -= 100;
+					height -= 100;
+	
+					antialiasing = false;
+	
+					flipX = true;
+				case 'nogf-pixel':
+					tex = Paths.getSparrowAtlas('characters/nogfPixel', 'shared');
+					frames = tex;
+					animation.addByIndices('singUP', 'GF IDLE', [2], "", 24, false);
+					animation.addByIndices('danceLeft', 'GF IDLE', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+					animation.addByIndices('danceRight', 'GF IDLE', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+	
+
+	
+					playAnim('danceRight');
+	
+					setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+					updateHitbox();
+					antialiasing = false;
+	
+			case 'gf-doki':
+				tex = Paths.getSparrowAtlas('characters/gfdoki', 'shared');
+				frames = tex;
+				animation.addByIndices('singUP', 'GF IDLE', [2], "", 24, false);
+				animation.addByIndices('danceLeft', 'GF IDLE', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF IDLE', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+
+
+
+				playAnim('danceRight');
+
+				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+				updateHitbox();
+				antialiasing = false;									
 		}
 
 		dance();
@@ -679,7 +893,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-doki' | 'nogf-pixel':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
@@ -690,37 +904,6 @@ class Character extends FlxSprite
 							playAnim('danceLeft');
 					}
 
-				case 'gf-christmas':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
-
-				case 'gf-car':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
-				case 'gf-pixel':
-					if (!animation.curAnim.name.startsWith('hair'))
-					{
-						danced = !danced;
-
-						if (danced)
-							playAnim('danceRight');
-						else
-							playAnim('danceLeft');
-					}
 
 				case 'spooky':
 					danced = !danced;

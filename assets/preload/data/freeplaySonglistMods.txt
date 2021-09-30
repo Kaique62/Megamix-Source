@@ -6,3 +6,10 @@ Cackle:myra:2
 Bones:myra:2
 Mystic:myra:2
 Hocus-Pocus:myra:2
+Too Slow:sonic:3
+Endless:sonicfun:3
+Execution:sonicLordX:3
+High-School-Conflict:monika:4
+Bara-No-Yume:monika-senpai:4
+Your-Demise:monika-angry:4
+Your-Reality:monika:4

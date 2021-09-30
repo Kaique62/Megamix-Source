@@ -25,7 +25,9 @@ class ModMenuState extends MusicBeatState
 
 	var weekData:Array<Dynamic> = [
 		['Headache', 'Nerves', 'Release', 'Fading'],
-		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],			
+		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],
+		['Too-Slow', 'Endless', 'Execution'],
+		['High School Conflict', 'Bara No Yume', 'Your Demise']			
 	];
 	var curDifficulty:Int = 1;
 
@@ -33,12 +35,16 @@ class ModMenuState extends MusicBeatState
 
 	var weekCharacters:Array<Dynamic> = [
 		['garcello', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],									
+		['none', 'bf', 'gf'],
+		['none', 'bf', 'gf'],
+		['none', 'bf', 'gf'],									
 	];
 
 	var weekNames:Array<String> = [
 		"SMOKE 'EM OUT STRUGGLE",
-		"Tales from the Raveyard",	
+		"Tales from the Raveyard",
+		"exe",
+		"Just Monika"	
 	];
 
 	var txtWeekTitle:FlxText;
@@ -317,7 +323,14 @@ class ModMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				if (curWeek == 2)
+					{
+						LoadingState.loadAndSwitchState(new VideoState('assets/videos/sonic/tooslowcutscene1.webm', new PlayState()), true);
+					}
+					else
+					{
+						LoadingState.loadAndSwitchState(new PlayState(), true);
+					}
 			});
 		}
 	}
@@ -379,7 +392,11 @@ class ModMenuState extends MusicBeatState
 			case 0:
 				yellowBG.makeGraphic(FlxG.width, 400, 0xFF008000);
 			case 1:
-				yellowBG.makeGraphic(FlxG.width, 400, 0xFF800080);		
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFF800080);
+			case 2:
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFF0000FF);
+			case 3:
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFF93EC);							
 		}
 
 		for (item in grpWeekText.members)

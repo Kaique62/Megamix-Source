@@ -11,6 +11,8 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
 import flixel.system.ui.FlxSoundTray;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 using StringTools;
 
 class FreeplaySelect extends MusicBeatState
@@ -54,9 +56,6 @@ class FreeplaySelect extends MusicBeatState
 				// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 			}
 
-			#if mobileC
-			addVirtualPad(UP_DOWN, A_B);
-			#end
  
 			gfDance = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
 			gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
@@ -67,12 +66,16 @@ class FreeplaySelect extends MusicBeatState
 		
 	
 			whitty = new FlxSprite(FlxG.width * 0.55, FlxG.height * 0.07);
+			whitty.y += 720;
 			whitty.frames = Paths.getSparrowAtlas('whittyDanceTitle','shared');
 			whitty.animation.addByPrefix('dance', 'Whitty Dancing Beat', 30, false);
 			whitty.antialiasing = true;
-			whitty.visible = false;
 			add(whitty);
-			
+		
+			#if mobileC
+			addVirtualPad(UP_DOWN, A_B);
+			#end
+
 		super.create();
 	}
 	function changeSelection(change:Int = 0)
@@ -91,19 +94,16 @@ class FreeplaySelect extends MusicBeatState
 	
 			var bullShit:Int = 0;
 	
-	
 			switch (curSelected)
 			{
 				case 0:
-					gfDance.visible = true;
-					whitty.visible = false;
+					whittyOut();
+					gfIn();
 				case 1:
-					gfDance.visible = false;
-					whitty.visible = true;
-				case 2:
-					gfDance.visible = false;
-					whitty.visible = false;					
+					whittyIn();	
+					gfOut();					
 			}
+			
 	
 	
 			for (item in grpControls.members)
@@ -170,5 +170,20 @@ class FreeplaySelect extends MusicBeatState
 			changeSelection(1);
 
 	}
-
+	function whittyIn()
+		{
+			FlxTween.tween(whitty, {y: 60}, 0.5, {ease: FlxEase.expoInOut});
+		}	
+	function whittyOut()
+		{
+			FlxTween.tween(whitty, {y: 700}, 0.5, {ease: FlxEase.expoInOut});
+		}
+	function gfOut()
+		{
+			FlxTween.tween(gfDance, {y: -700}, 0.5, {ease: FlxEase.expoInOut});
+		}
+	function gfIn()
+		{
+			FlxTween.tween(gfDance, {y: 60}, 0.5, {ease: FlxEase.expoInOut});
+		}	
 }
