@@ -19,6 +19,7 @@ import flixel.util.FlxColor;
 import flixel.FlxCamera;
 
 
+
 class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
@@ -191,7 +192,7 @@ class PauseSubState extends MusicBeatSubstate
 				case "Resume":
 					close();
 				case "Restart Song":
-					FlxG.resetState();
+					FlxG.resetState();						
 				case "Exit to menu":
 					if(PlayState.loadRep)
 					{

@@ -26,6 +26,15 @@ class KadeEngineData
 		if (FlxG.save.data.fps == null)
 			FlxG.save.data.fps = false;
 
+		if (FlxG.save.data.antiaslising == null)
+			FlxG.save.data.antiaslising = true;
+
+		if (FlxG.save.data.gf == null)
+			FlxG.save.data.gf = true;	
+		
+		if (FlxG.save.data.bg == null)
+			FlxG.save.data.bg = true;			
+
 		if (FlxG.save.data.changedHit == null)
 		{
 			FlxG.save.data.changedHitX = -1;

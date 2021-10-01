@@ -61,6 +61,12 @@ class OptionsMenu extends MusicBeatState
 			new BotPlay("Showcase your charts and mods with autoplay.")
 		]),
 
+		new OptionCategory("Megamix Options", [
+			new AntiAlising("Disable Anti-Alising"),
+			new GF("GF"),	
+			new BG("BG"),		
+		]),
+
 		new OptionCategory("Mobile settings", [
 			new CustomControls("edit a control"),
 			new About("about android port")

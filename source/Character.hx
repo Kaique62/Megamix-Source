@@ -27,7 +27,12 @@ class Character extends FlxSprite
 		this.isPlayer = isPlayer;
 
 		var tex:FlxAtlasFrames;
-		antialiasing = true;
+		if	(FlxG.save.data.antiaslising){
+			antialiasing = true;
+		}
+		else if	(!FlxG.save.data.antiaslising){
+			antialiasing = false;
+		}	
 
 		switch (curCharacter)
 		{
@@ -62,6 +67,7 @@ class Character extends FlxSprite
 				addOffset('scared', -2, -17);
 
 				playAnim('danceRight');
+
 
 			case 'gf-christmas':
 				tex = Paths.getSparrowAtlas('characters/gfChristmas');

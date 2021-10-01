@@ -174,7 +174,66 @@ class DownscrollOption extends Option
 		return FlxG.save.data.downscroll ? "Downscroll" : "Upscroll";
 	}
 }
-
+class AntiAlising extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.antiaslising = !FlxG.save.data.antiaslising;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.antiaslising ? "AntiAlising : ON" : "AntiAlising: OFF";
+		}
+}
+class GF extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.gf = !FlxG.save.data.gf;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.gf ? "GF : ON" : "GF: OFF";
+		}
+}
+class BG extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.bg = !FlxG.save.data.gf;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.bg ? "BG : ON" : "BG: OFF";
+		}
+}
 class GhostTapOption extends Option
 {
 	public function new(desc:String)
