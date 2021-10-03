@@ -27,7 +27,8 @@ class ModMenuState extends MusicBeatState
 		['Headache', 'Nerves', 'Release', 'Fading'],
 		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],
 		['Too-Slow', 'Endless', 'Execution'],
-		['High School Conflict', 'Bara No Yume', 'Your Demise']			
+		['High School Conflict', 'Bara No Yume', 'Your Demise'],
+		['Fixel', 'GenesisMK2', 'Overbearing']			
 	];
 	var curDifficulty:Int = 1;
 
@@ -37,14 +38,16 @@ class ModMenuState extends MusicBeatState
 		['garcello', 'bf', 'gf'],
 		['none', 'bf', 'gf'],
 		['none', 'bf', 'gf'],
-		['none', 'bf', 'gf'],									
+		['none', 'bf', 'gf'],
+		['none', 'none', 'none']									
 	];
 
 	var weekNames:Array<String> = [
 		"SMOKE 'EM OUT STRUGGLE",
 		"Tales from the Raveyard",
 		"exe",
-		"Just Monika"	
+		"Just Monika",
+		"what a B sides ripoff",	
 	];
 
 	var txtWeekTitle:FlxText;
@@ -396,7 +399,9 @@ class ModMenuState extends MusicBeatState
 			case 2:
 				yellowBG.makeGraphic(FlxG.width, 400, 0xFF0000FF);
 			case 3:
-				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFF93EC);							
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFF93EC);
+			case 3:		
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFF9CF51);						
 		}
 
 		for (item in grpWeekText.members)

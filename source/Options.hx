@@ -224,7 +224,7 @@ class BG extends Option
 	
 		public override function press():Bool
 		{
-			FlxG.save.data.bg = !FlxG.save.data.gf;
+			FlxG.save.data.bg = !FlxG.save.data.bg;
 			display = updateDisplay();
 			return true;
 		}

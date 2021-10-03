@@ -829,7 +829,49 @@ class Character extends FlxSprite
 
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 				updateHitbox();
-				antialiasing = false;									
+				antialiasing = false;
+		//Jamey!!!1!1!1	
+		case 'jamey1':
+			frames = Paths.getSparrowAtlas('jamey/DADDY_DEAREST1');
+			animation.addByPrefix('idle', 'BF idle dance', 24, false);
+			animation.addByPrefix('singUP', 'BF NOTE UP', 24, false);
+			animation.addByPrefix('singLEFT', 'BF NOTE RIGHT', 24, false);
+			animation.addByPrefix('singRIGHT', 'BF NOTE LEFT', 24, false);
+			animation.addByPrefix('singDOWN', 'BF NOTE DOWN', 24, false);
+
+
+			addOffset('idle', -5, -80);
+			addOffset("singUP", -29, -30);
+			addOffset("singLEFT", 12, -53);
+			addOffset("singRIGHT", -38, -70);
+			addOffset("singDOWN", -10, -110);
+
+			playAnim('idle');
+
+			flipX = true;
+
+			antialiasing = false;
+		case 'jamey2': 
+			frames = Paths.getSparrowAtlas('jamey/Monster_Assets1');
+			animation.addByPrefix('idle', 'BF idle dance', 24, false);
+			animation.addByPrefix('singUP', 'BF NOTE UP', 24, false);
+			animation.addByPrefix('singLEFT', 'BF NOTE LEFT', 24, false);
+			animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT', 24, false);
+			animation.addByPrefix('singDOWN', 'BF NOTE DOWN', 24, false);
+
+			animation.addByPrefix('singDOWN-alt', 'BF dies', 24, false);
+
+			addOffset('idle', 0, -80);
+			addOffset("singUP", -6, -30);
+			addOffset("singRIGHT", 0, -53);
+			addOffset("singLEFT", -10, -70);
+			addOffset("singDOWN", 0, -110);
+			addOffset("singDOWN-alt", 0, -80);
+			playAnim('idle');
+
+			flipX = true;
+
+			antialiasing = false;																
 		}
 
 		dance();

@@ -49,11 +49,14 @@ class HealthIcon extends FlxSprite
 		animation.add('sonicfun', [34, 35], 0, false, isPlayer);
 		animation.add('sonicLordX', [36, 37], 0, false, isPlayer);
 		//monika
-		animation.add('monika', [36, 37], 0, false, isPlayer);
-		animation.add('monika-angry', [38, 39], 0, false, isPlayer);
+		animation.add('monika', [40, 41], 0, false, isPlayer);
+		animation.add('monika-angry', [42, 43], 0, false, isPlayer);
 		animation.add('bf-pixelangry', [21, 21], 0, false, isPlayer);
-		animation.add('duet', [34, 35], 0, false, isPlayer);	
-		animation.add('playablesenpai', [22, 22], 0, false, isPlayer);						
+		animation.add('duet', [38, 39], 0, false, isPlayer);	
+		animation.add('playablesenpai', [22, 22], 0, false, isPlayer);
+		//Jamey1!!11!!
+		animation.add('jamey1', [10, 11], 0, false, isPlayer);
+		animation.add('jamey2', [10, 11], 0, false, isPlayer);								
 		animation.play(char);
 		scrollFactor.set();
 

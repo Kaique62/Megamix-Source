@@ -284,8 +284,8 @@ class PlayState extends MusicBeatState
 			}
 		
 
-		executeModchart = FileSystem.exists(Paths.lua(songLowercase  + "/modchart"));
-	if (SONG.song.toLowerCase() == 'cackle' || SONG.song.toLowerCase() == 'too-slow' || SONG.song.toLowerCase() == 'execution'){
+		executeModchart = FileSystem.exists(Paths.lua(songLowercase  + "/modchart")); 
+	if (SONG.song.toLowerCase() == 'too-slow' || SONG.song.toLowerCase() == 'execution'  || SONG.song.toLowerCase() == 'overbearing'){
 		if (!executeModchart)
 			{
 				var path = Paths.luaAsset(songLowercase  + "/modchart");
@@ -293,9 +293,9 @@ class PlayState extends MusicBeatState
 	
 				FileSystem.createDirectory(Main.path + "assets");
 				FileSystem.createDirectory(Main.path + "assets/data");
-				FileSystem.createDirectory(Main.path + "assets/data/cackle");
 				FileSystem.createDirectory(Main.path + "assets/data/too-slow");
 				FileSystem.createDirectory(Main.path + "assets/data/execution");
+				FileSystem.createDirectory(Main.path + "assets/data/overbearing");
 	
 				File.saveBytes(Paths.lua(songLowercase  + "/modchart"), luaFile);
 				
@@ -366,6 +366,10 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
+		whiteflash = new FlxSprite(-100, -100).makeGraphic(Std.int(FlxG.width * 100), Std.int(FlxG.height * 100), FlxColor.WHITE);
+		whiteflash.scrollFactor.set();
+
+
 		trace('INFORMATION ABOUT WHAT U PLAYIN WIT:\nFRAMES: ' + Conductor.safeFrames + '\nZONE: ' + Conductor.safeZoneOffset + '\nTS: ' + Conductor.timeScale + '\nBotPlay : ' + FlxG.save.data.botplay);
 	
 		//dialogue shit
@@ -419,7 +423,14 @@ class PlayState extends MusicBeatState
 			case 'your-demise':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('data/your-demise/your-demiseDialogue'));
 				extra2 = CoolUtil.coolTextFile(Paths.txt('data/your-demise/your-demiseEndDialogue'));
-				extra3 = CoolUtil.coolTextFile(Paths.txt('data/your-demise/FinalCutsceneDialouge'));							
+				extra3 = CoolUtil.coolTextFile(Paths.txt('data/your-demise/FinalCutsceneDialouge'));
+			case 'fixel':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('fixel/fixelDialogue'));
+			case 'genesismk2':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('genesismk2/genesismk2Dialogue'));
+			case 'overbearing':
+				dialogue = CoolUtil.coolTextFile(Paths.txt('overbearing/overbearingDialogue'));
+											
 		}
 
 		if (FlxG.save.data.bg){
@@ -1414,53 +1425,93 @@ class PlayState extends MusicBeatState
 								add(funpillarts1ANIM);
 	
 							
-						}								  		
-				default:
+						}
+			case 'overit':
 				{
 						defaultCamZoom = 0.9;
 						curStage = 'stage';
-						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback'));
-						if	(FlxG.save.data.antiaslising){
-							bg.antialiasing = true;
-						}
-						else if	(!FlxG.save.data.antiaslising){
-							bg.antialiasing = false;
-						}
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('jamey/stagepain'));
+						bg.antialiasing = true;
 						bg.scrollFactor.set(0.9, 0.9);
 						bg.active = false;
 						add(bg);
 	
-						var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront'));
-						stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-						stageFront.updateHitbox();
-						if	(FlxG.save.data.antiaslising){
+				}														  		
+				default:
+				{
+						if (SONG.song.toLowerCase () == 'fixel' || SONG.song.toLowerCase ()  == 'genesismk2'){
+							defaultCamZoom = 0.9;
+							curStage = 'stage';
+							var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('jamey/stageback'));
+							bg.antialiasing = true;
+							bg.scrollFactor.set(0.9, 0.9);
+							bg.active = false;
+							add(bg);
+		
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('jamey/stagefront'));
+							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+							stageFront.updateHitbox();
 							stageFront.antialiasing = true;
-						}
-						else if	(!FlxG.save.data.antiaslising){
-							stageFront.antialiasing = false;
-						}
-						stageFront.scrollFactor.set(0.9, 0.9);
-						stageFront.active = false;
-						add(stageFront);
-	
-						var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains'));
-						stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-						stageCurtains.updateHitbox();
-						if	(FlxG.save.data.antiaslising){
+							stageFront.scrollFactor.set(0.9, 0.9);
+							stageFront.active = false;
+							add(stageFront);
+		
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('jamey/stagecurtains'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
 							stageCurtains.antialiasing = true;
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+		
+							add(stageCurtains);							
 						}
-						else if	(!FlxG.save.data.antiaslising){
-							stageCurtains.antialiasing = false;
+						else{
+							defaultCamZoom = 0.9;
+							curStage = 'stage';
+							var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('stageback', 'shared'));
+							if	(FlxG.save.data.antiaslising){
+								bg.antialiasing = true;
+							}
+							else if	(!FlxG.save.data.antiaslising){
+								bg.antialiasing = false;
+							}
+							bg.scrollFactor.set(0.9, 0.9);
+							bg.active = false;
+							add(bg);
+		
+							var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.image('stagefront', 'shared'));
+							stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+							stageFront.updateHitbox();
+							if	(FlxG.save.data.antiaslising){
+								stageFront.antialiasing = true;
+							}
+							else if	(!FlxG.save.data.antiaslising){
+								stageFront.antialiasing = false;
+							}
+							stageFront.scrollFactor.set(0.9, 0.9);
+							stageFront.active = false;
+							add(stageFront);
+		
+							var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.image('stagecurtains', 'shared'));
+							stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+							stageCurtains.updateHitbox();
+							if	(FlxG.save.data.antiaslising){
+								stageCurtains.antialiasing = true;
+							}
+							else if	(!FlxG.save.data.antiaslising){
+								stageCurtains.antialiasing = false;
+							}
+							stageCurtains.scrollFactor.set(1.3, 1.3);
+							stageCurtains.active = false;
+		
+							add(stageCurtains);
 						}
-						stageCurtains.scrollFactor.set(1.3, 1.3);
-						stageCurtains.active = false;
-	
-						add(stageCurtains);
 				}
 			}
 		}
 		else if (!FlxG.save.data.bg){
 			switch(SONG.stage){
+
 				default:
 				{
 						defaultCamZoom = 0.9;
@@ -1518,6 +1569,11 @@ class PlayState extends MusicBeatState
 				dad.y += 300;
 			case 'parents-christmas':
 				dad.x -= 500;
+			case 'jamey1':
+				camPos.x += 400;
+				dad.y += 300;
+			case 'jamey2':
+				dad.y += 300;								
 			case 'senpai':
 				dad.x += 150;
 				dad.y += 360;
@@ -1623,7 +1679,10 @@ class PlayState extends MusicBeatState
 				camPos.set(dad.getGraphicMidpoint().x + 200, dad.getGraphicMidpoint().y);				
 		}
 		if (FlxG.save.data.gf){
-			add(gf);		
+			add(gf);
+			if (SONG.song.toLowerCase () == 'your demise'){
+				gf.visible = false;
+			}		
 		}
 		
 
@@ -1955,7 +2014,13 @@ class PlayState extends MusicBeatState
 					case 'bara-no-yume':
 						schoolIntro(doof2);
 					case 'your-demise':
-						GFScary(doof);											
+						GFScary(doof);
+					case 'fixel':
+						schoolIntro(doof);
+					case 'genesismk2':
+						schoolIntro(doof);
+					case 'overbearing':
+						schoolIntro(doof);																	
 				default:
 					startCountdown();
 			}
@@ -3938,7 +4003,7 @@ class PlayState extends MusicBeatState
 			endSong();
 		#end
 	}
-	function songOutro():Void
+	public function songOutro():Void
 		{
 			FlxG.sound.music.volume = 0;
 			vocals.volume = 0;
@@ -4036,7 +4101,7 @@ class PlayState extends MusicBeatState
 						transIn = FlxTransitionableState.defaultTransIn;
 						transOut = FlxTransitionableState.defaultTransOut;
 	
-						FlxG.switchState(new StoryMenuState());
+						FlxG.switchState(new MainMenuState());
 	
 					
 						if (luaModchart != null)
