@@ -234,6 +234,26 @@ class BG extends Option
 			return FlxG.save.data.bg ? "BG : ON" : "BG: OFF";
 		}
 }
+class Cutscenes extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.cutscenes = !FlxG.save.data.cutscenes;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.cutscenes ? "Cutscenes : Enabled" : "Cutscenes: Disabled";
+		}
+}
 class GhostTapOption extends Option
 {
 	public function new(desc:String)

@@ -7,7 +7,7 @@ class MenuCharacterMod extends FlxSprite
 {
 	public var character:String;
 
-	private var listCharacters = ['dad', 'spooky', 'pico', 'mom', 'parents-christmas', 'senpai', 'garcello', 'none'];
+	private var listCharacters = ['dad', 'spooky', 'pico', 'mom', 'parents-christmas', 'senpai', 'garcello', 'none', 'whitty'];
 
 	public function new(x:Float, character:String = 'bf')
 	{
@@ -36,8 +36,9 @@ class MenuCharacterMod extends FlxSprite
 		animation.addByPrefix('mom', "Mom Idle BLACK LINES", 24);
 		animation.addByPrefix('parents-christmas', "Parent Christmas Idle Black Lines", 24);
 		animation.addByPrefix('senpai', "SENPAI idle Black Lines", 24);	
-		animation.addByPrefix('garcello', "garcello idle", 24);	
-		animation.addByPrefix('none', "none", 24);			
+		animation.addByPrefix('garcello', "garcello idle", 24);
+		animation.addByPrefix('none', "none", 24);		
+		animation.addByPrefix('whitty', "Whitty idle dance BLACK LINE", 24);			
 		// Parent Christmas Idle
 
 		animation.play(character);

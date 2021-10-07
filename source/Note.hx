@@ -26,6 +26,7 @@ class Note extends FlxSprite
 	public var modifiedByLua:Bool = false;
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
+	public var noteType:Int = 0;
 
 	public var noteScore:Float = 1;
 
@@ -37,13 +38,13 @@ class Note extends FlxSprite
 
 	public var rating:String = "shit";
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false)
+	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?noteType:Int = 0)
 	{
 		super();
 
 		if (prevNote == null)
 			prevNote = this;
-
+		this.noteType = noteType;
 		this.prevNote = prevNote;
 		isSustainNote = sustainNote;
 
@@ -64,10 +65,20 @@ class Note extends FlxSprite
 			case 'pixel':
 				loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);
 
-				animation.add('greenScroll', [6]);
-				animation.add('redScroll', [7]);
-				animation.add('blueScroll', [5]);
-				animation.add('purpleScroll', [4]);
+				if (noteType == 2)
+					{
+						animation.add('greenScroll', [22]);
+						animation.add('redScroll', [23]);
+						animation.add('blueScroll', [21]);
+						animation.add('purpleScroll', [20]);
+					}
+				else
+					{
+						animation.add('greenScroll', [6]);
+						animation.add('redScroll', [7]);
+						animation.add('blueScroll', [5]);
+						animation.add('purpleScroll', [4]);
+					}
 
 				if (isSustainNote)
 				{
@@ -89,20 +100,41 @@ class Note extends FlxSprite
 			default:
 				frames = Paths.getSparrowAtlas('NOTE_assets');
 
-				animation.addByPrefix('greenScroll', 'green0');
-				animation.addByPrefix('redScroll', 'red0');
-				animation.addByPrefix('blueScroll', 'blue0');
-				animation.addByPrefix('purpleScroll', 'purple0');
+				switch (noteType)
+					{
+						case 2:
+							animation.addByPrefix('greenScroll', 'markov green0');
+							animation.addByPrefix('redScroll', 'markov red0');
+							animation.addByPrefix('blueScroll', 'markov blue0');
+							animation.addByPrefix('purpleScroll', 'markov purple0');
 
-				animation.addByPrefix('purpleholdend', 'pruple end hold');
-				animation.addByPrefix('greenholdend', 'green hold end');
-				animation.addByPrefix('redholdend', 'red hold end');
-				animation.addByPrefix('blueholdend', 'blue hold end');
+							animation.addByPrefix('purpleholdend', 'markov pruple end hold');
+							animation.addByPrefix('greenholdend', 'markov green hold end');
+							animation.addByPrefix('redholdend', 'markov red hold end');
+							animation.addByPrefix('blueholdend', 'markov blue hold end');
 
-				animation.addByPrefix('purplehold', 'purple hold piece');
-				animation.addByPrefix('greenhold', 'green hold piece');
-				animation.addByPrefix('redhold', 'red hold piece');
-				animation.addByPrefix('bluehold', 'blue hold piece');
+							animation.addByPrefix('purplehold', 'markov purple hold piece');
+							animation.addByPrefix('greenhold', 'markov green hold piece');
+							animation.addByPrefix('redhold', 'markov red hold piece');
+							animation.addByPrefix('bluehold', 'markov blue hold piece');
+
+						default:
+							animation.addByPrefix('greenScroll', 'green0');
+							animation.addByPrefix('redScroll', 'red0');
+							animation.addByPrefix('blueScroll', 'blue0');
+							animation.addByPrefix('purpleScroll', 'purple0');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold');
+							animation.addByPrefix('greenholdend', 'green hold end');
+							animation.addByPrefix('redholdend', 'red hold end');
+							animation.addByPrefix('blueholdend', 'blue hold end');
+
+							animation.addByPrefix('purplehold', 'purple hold piece');
+							animation.addByPrefix('greenhold', 'green hold piece');
+							animation.addByPrefix('redhold', 'red hold piece');
+							animation.addByPrefix('bluehold', 'blue hold piece');
+
+					}
 
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
@@ -173,7 +205,7 @@ class Note extends FlxSprite
 						prevNote.animation.play('redhold');
 				}
 
-
+				
 				if(FlxG.save.data.scrollSpeed != 1)
 					prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * FlxG.save.data.scrollSpeed;
 				else
@@ -190,26 +222,31 @@ class Note extends FlxSprite
 
 		if (mustPress)
 		{
-			// ass
-			if (isSustainNote)
-			{
-				if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * 1.5)
-					&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
-					canBeHit = true;
-				else
-					canBeHit = false;
-			}
-			else
-			{
-				if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-					&& strumTime < Conductor.songPosition + Conductor.safeZoneOffset)
-					canBeHit = true;
-				else
-					canBeHit = false;
-			}
+			switch (noteType)
+				{
+					case 2:
+						{
+							if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * .3) && strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * .2))
+								canBeHit = true;
+							else
+								canBeHit = false;
 
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset * Conductor.timeScale && !wasGoodHit)
-				tooLate = true;
+							if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset * Conductor.timeScale && !wasGoodHit)
+								tooLate = true;
+						}
+					default:
+						{
+							// The * 0.5 is so that it's easier to hit them too late, instead of too early
+							if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * 1.5) && strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+								canBeHit = true;
+							else
+								canBeHit = false;
+
+							if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset * Conductor.timeScale && !wasGoodHit)
+								tooLate = true;
+						}
+				}
+			
 		}
 		else
 		{

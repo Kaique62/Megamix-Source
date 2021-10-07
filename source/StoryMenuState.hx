@@ -286,7 +286,9 @@ class StoryMenuState extends MusicBeatState
 			}
 
 			PlayState.storyPlaylist = weekData[curWeek];
-			PlayState.isStoryMode = true;
+			if (FlxG.save.data.cutscenes){
+				PlayState.isStoryMode = true;
+			}
 			selectedWeek = true;
 
 			var diffic = "";

@@ -64,7 +64,8 @@ class OptionsMenu extends MusicBeatState
 		new OptionCategory("Megamix Options", [
 			new AntiAlising("Disable Anti-Alising"),
 			new GF("GF"),	
-			new BG("BG"),		
+			new BG("BG"),
+			new Cutscenes("Enable And Disable Cutscenes")		
 		]),
 
 		new OptionCategory("Mobile settings", [

@@ -56,7 +56,11 @@ class HealthIcon extends FlxSprite
 		animation.add('playablesenpai', [22, 22], 0, false, isPlayer);
 		//Jamey1!!11!!
 		animation.add('jamey1', [10, 11], 0, false, isPlayer);
-		animation.add('jamey2', [10, 11], 0, false, isPlayer);								
+		animation.add('jamey2', [10, 11], 0, false, isPlayer);
+		//Whitty
+		animation.add('whitty', [44, 44], 0, false, isPlayer);
+		animation.add('whittycrazy', [45, 46], 0, false, isPlayer);
+		animation.add('wide', [11, 11], 0, false, isPlayer);								
 		animation.play(char);
 		scrollFactor.set();
 

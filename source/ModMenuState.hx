@@ -28,7 +28,8 @@ class ModMenuState extends MusicBeatState
 		['Cackle', 'Bones', 'Mystic', 'Hocus-Pocus'],
 		['Too-Slow', 'Endless', 'Execution'],
 		['High School Conflict', 'Bara No Yume', 'Your Demise'],
-		['Fixel', 'GenesisMK2', 'Overbearing']			
+		['Fixel', 'GenesisMK2', 'Overbearing'],
+		['Lo-Fight','Overhead', 'Ballistic'],			
 	];
 	var curDifficulty:Int = 1;
 
@@ -39,7 +40,8 @@ class ModMenuState extends MusicBeatState
 		['none', 'bf', 'gf'],
 		['none', 'bf', 'gf'],
 		['none', 'bf', 'gf'],
-		['none', 'none', 'none']									
+		['none', 'none', 'none'],
+		['whitty', 'bf', 'gf'],									
 	];
 
 	var weekNames:Array<String> = [
@@ -47,7 +49,8 @@ class ModMenuState extends MusicBeatState
 		"Tales from the Raveyard",
 		"exe",
 		"Just Monika",
-		"what a B sides ripoff",	
+		"what a B sides ripoff",
+		"Back Alley Blitz",	
 	];
 
 	var txtWeekTitle:FlxText;
@@ -305,7 +308,9 @@ class ModMenuState extends MusicBeatState
 			}
 
 			PlayState.storyPlaylist = weekData[curWeek];
-			PlayState.isStoryMode = true;
+			if (FlxG.save.data.cutscenes){
+				PlayState.isStoryMode = true;
+			}
 			selectedWeek = true;
 
 			var diffic = "";
@@ -400,8 +405,10 @@ class ModMenuState extends MusicBeatState
 				yellowBG.makeGraphic(FlxG.width, 400, 0xFF0000FF);
 			case 3:
 				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFF93EC);
-			case 3:		
-				yellowBG.makeGraphic(FlxG.width, 400, 0xFFF9CF51);						
+			case 4:		
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFF808080);
+			case 5:		
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFFA500);			
 		}
 
 		for (item in grpWeekText.members)
@@ -447,6 +454,9 @@ class ModMenuState extends MusicBeatState
 				grpWeekCharacters.members[0].offset.set(300, 100);
 				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 0.5));				
 							
+			case 'whitty':
+				grpWeekCharacters.members[0].offset.set(80, 160);
+				grpWeekCharacters.members[0].setGraphicSize(Std.int(grpWeekCharacters.members[0].width * 1));
 
 			default:
 				grpWeekCharacters.members[0].offset.set(100, 100);

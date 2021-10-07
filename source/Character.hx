@@ -650,7 +650,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('idle', 'SONICFUNIDLE', 24);
 				animation.addByPrefix('singUP', 'SONICFUNUP', 24);
 				animation.addByPrefix('singRIGHT', 'SONICFUNRIGHT', 24);
-				animation.addByPrefix('singDOWN', 'SONICFUOWN', 24);
+				animation.addByPrefix('singDOWN', 'SONICFUNOWN', 24);
 				animation.addByPrefix('singLEFT', 'SONICFUNLEFT', 24);
 	
 				addOffset('idle', -21, 189);
@@ -766,6 +766,11 @@ class Character extends FlxSprite
 				//Lumatic says "Jorge and Senpai have a big forehead tho"
 
 
+				addOffset('idle', 50, 200);
+				addOffset("singUP", 55, 237);
+				addOffset("singRIGHT", 50, 200);
+				addOffset("singLEFT",90, 200);
+				addOffset("singDOWN", 64, 200);
 	
 				setGraphicSize(Std.int(width * 6));
 				updateHitbox();
@@ -871,7 +876,80 @@ class Character extends FlxSprite
 
 			flipX = true;
 
-			antialiasing = false;																
+			antialiasing = false;
+	//Whitty
+			case 'gf-whitty':
+				tex = Paths.getSparrowAtlas('GF_Standing_Sway', 'bonusWeek');
+				frames = tex;
+				animation.addByPrefix('sad', 'Sad', 24, false);
+				animation.addByPrefix('danceLeft', 'Idle Left', 24, false);
+				animation.addByPrefix('danceRight', 'Idle Right', 24, false);
+				animation.addByPrefix('scared', 'Scared', 24, false);
+
+				addOffset('sad', -140, -153);
+				addOffset('danceLeft', -140, -153);
+				addOffset('danceRight', -140, -153);
+				addOffset('scared', -140, -153);
+
+				playAnim('danceRight');
+			case 'gf-whitty-zoom':
+				tex = Paths.getSparrowAtlas('GF_Standing_ZOOOOOOOOOOOOOOM', 'bonusWeek');
+				frames = tex;
+				animation.addByPrefix('sad', 'Sad', 24, false);
+				animation.addByPrefix('danceLeft', 'Idle Left', 24, false);
+				animation.addByPrefix('danceRight', 'Idle Right', 24, false);
+				animation.addByPrefix('scared', 'Scared', 24, false);
+
+				addOffset('sad', -140, -153);
+				addOffset('danceLeft', -140, -153);
+				addOffset('danceRight', -140, -153);
+				addOffset('scared', -140, -153);
+
+				playAnim('danceRight');
+			case 'whitty': // whitty reg (lofight,overhead)
+				tex = Paths.getSparrowAtlas('WhittySprites', 'bonusWeek');
+				frames = tex;
+				animation.addByPrefix('idle', 'Idle', 24);
+				animation.addByPrefix('singUP', 'Sing Up', 24);
+				animation.addByPrefix('singRIGHT', 'Sing Right', 24);
+				animation.addByPrefix('singDOWN', 'Sing Down', 24);
+				animation.addByPrefix('singLEFT', 'Sing Left', 24);
+
+				addOffset('idle', 0,0 );
+				addOffset("singUP", -6, 50);
+				addOffset("singRIGHT", 0, 27);
+				addOffset("singLEFT", -10, 10);
+				addOffset("singDOWN", 0, -30);	
+			case 'whittycrazy': // whitty crazy (ballistic)
+				tex = Paths.getSparrowAtlas('WhittyCrazy', 'bonusWeek');
+				frames = tex;
+				animation.addByPrefix('idle', 'Whitty idle dance', 24);
+				animation.addByPrefix('singUP', 'Whitty Sing Note UP', 24);
+				animation.addByPrefix('singRIGHT', 'whitty sing note right', 24);
+				animation.addByPrefix('singDOWN', 'Whitty Sing Note DOWN', 24);
+				animation.addByPrefix('singLEFT', 'Whitty Sing Note LEFT', 24);
+
+				addOffset('idle', 50);
+				addOffset("singUP", 50, 85);
+				addOffset("singRIGHT", 100, -75);
+				addOffset("singLEFT", 50);
+				addOffset("singDOWN", 75, -150);
+			case 'wide': // W I D E
+				tex = Paths.getSparrowAtlas('wide', 'bonusWeek');
+				frames = tex;
+				animation.addByPrefix('idle', 'Dad idle dance', 24);
+				animation.addByPrefix('singUP', 'Dad Sing note UP', 24);
+				animation.addByPrefix('singLEFT', 'dad sing note right', 24);
+				animation.addByPrefix('singDOWN', 'Dad Sing Note DOWN', 24);
+				animation.addByPrefix('singRIGHT', 'Dad Sing Note LEFT', 24);
+	
+				addOffset('idle');
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+	
+				playAnim('idle');																													
 		}
 
 		dance();
@@ -941,7 +1019,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-doki' | 'nogf-pixel':
+				case 'gf' | 'gf-christmas' | 'gf-car' | 'gf-pixel' | 'gf-doki' | 'nogf-pixel' | 'gf-whitty' | 'gf-whitty-zoom':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
