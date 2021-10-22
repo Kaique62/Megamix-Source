@@ -98,25 +98,31 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 				updateHitbox();
 			default:
-				frames = Paths.getSparrowAtlas('NOTE_assets');
+				switch (noteType)
+				{
+				case 2:
+					frames = Paths.getSparrowAtlas('staticNotes');
+				default:
+					frames = Paths.getSparrowAtlas('NOTE_assets');						
+				}
 
 				switch (noteType)
 					{
 						case 2:
-							animation.addByPrefix('greenScroll', 'markov green0');
-							animation.addByPrefix('redScroll', 'markov red0');
-							animation.addByPrefix('blueScroll', 'markov blue0');
-							animation.addByPrefix('purpleScroll', 'markov purple0');
+							animation.addByPrefix('greenScroll', 'green static');
+							animation.addByPrefix('redScroll', 'red static');
+							animation.addByPrefix('blueScroll', 'blue static');
+							animation.addByPrefix('purpleScroll', 'purple static');
 
-							animation.addByPrefix('purpleholdend', 'markov pruple end hold');
-							animation.addByPrefix('greenholdend', 'markov green hold end');
-							animation.addByPrefix('redholdend', 'markov red hold end');
-							animation.addByPrefix('blueholdend', 'markov blue hold end');
+							animation.addByPrefix('purpleholdend', 'pruple end hold');
+							animation.addByPrefix('greenholdend', 'green hold end');
+							animation.addByPrefix('redholdend', 'red hold end');
+							animation.addByPrefix('blueholdend', 'blue hold end');
 
-							animation.addByPrefix('purplehold', 'markov purple hold piece');
-							animation.addByPrefix('greenhold', 'markov green hold piece');
-							animation.addByPrefix('redhold', 'markov red hold piece');
-							animation.addByPrefix('bluehold', 'markov blue hold piece');
+							animation.addByPrefix('purplehold', 'purple hold piece');
+							animation.addByPrefix('greenhold', 'green hold piece');
+							animation.addByPrefix('redhold', 'red hold piece');
+							animation.addByPrefix('bluehold', 'blue hold piece');
 
 						default:
 							animation.addByPrefix('greenScroll', 'green0');

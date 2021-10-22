@@ -308,9 +308,8 @@ class ModMenuState extends MusicBeatState
 			}
 
 			PlayState.storyPlaylist = weekData[curWeek];
-			if (FlxG.save.data.cutscenes){
-				PlayState.isStoryMode = true;
-			}
+			PlayState.isStoryMode = true;
+			
 			selectedWeek = true;
 
 			var diffic = "";
@@ -331,7 +330,7 @@ class ModMenuState extends MusicBeatState
 			PlayState.campaignScore = 0;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				if (curWeek == 2)
+				if (curWeek == 2 && FlxG.save.data.cutscenes)
 					{
 						LoadingState.loadAndSwitchState(new VideoState('assets/videos/sonic/tooslowcutscene1.webm', new PlayState()), true);
 					}

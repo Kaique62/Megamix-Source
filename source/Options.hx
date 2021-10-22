@@ -174,26 +174,6 @@ class DownscrollOption extends Option
 		return FlxG.save.data.downscroll ? "Downscroll" : "Upscroll";
 	}
 }
-class AntiAlising extends Option
-{
-	public function new(desc:String)
-		{
-			super();
-			description = desc;
-		}
-	
-		public override function press():Bool
-		{
-			FlxG.save.data.antiaslising = !FlxG.save.data.antiaslising;
-			display = updateDisplay();
-			return true;
-		}
-	
-		private override function updateDisplay():String
-		{
-			return FlxG.save.data.antiaslising ? "AntiAlising : ON" : "AntiAlising: OFF";
-		}
-}
 class GF extends Option
 {
 	public function new(desc:String)
@@ -251,7 +231,7 @@ class Cutscenes extends Option
 	
 		private override function updateDisplay():String
 		{
-			return FlxG.save.data.cutscenes ? "Cutscenes : Enabled" : "Cutscenes: Disabled";
+			return FlxG.save.data.cutscenes ? "Cutscenes: On" : "Cutscenes: Off";
 		}
 }
 class GhostTapOption extends Option
@@ -274,7 +254,28 @@ class GhostTapOption extends Option
 		return FlxG.save.data.ghost ? "Ghost Tapping" : "No Ghost Tapping";
 	}
 }
+class MiddleScroll extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
 
+	public override function press():Bool
+	{
+		FlxG.save.data.middlescroll = !FlxG.save.data.middlescroll;
+		
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return  FlxG.save.data.middlescroll ? "Middlescroll: On" : "Middlescroll: Off";
+	}
+
+}
 class AccuracyOption extends Option
 {
 	public function new(desc:String)

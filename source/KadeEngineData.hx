@@ -38,6 +38,9 @@ class KadeEngineData
 		if (FlxG.save.data.bg == null)
 			FlxG.save.data.bg = true;			
 
+		if (FlxG.save.data.middlescroll == null)
+			FlxG.save.data.middlescroll = false;		
+		
 		if (FlxG.save.data.changedHit == null)
 		{
 			FlxG.save.data.changedHitX = -1;

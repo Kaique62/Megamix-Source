@@ -196,7 +196,8 @@ class PauseSubState extends MusicBeatSubstate
 				case "Chart Editor":
 					FlxG.switchState(new ChartingState());	
 				case "Skip Song":
-				PlayState.instance.songOutro();						
+					PlayState.instance.songOutro();
+					close();						
 				case "Exit to menu":
 					if(PlayState.loadRep)
 					{

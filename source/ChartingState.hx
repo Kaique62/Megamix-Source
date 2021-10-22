@@ -100,7 +100,6 @@ class ChartingState extends MusicBeatState
 	//add buttons
 	var key_space:FlxButton;
 	var key_shift:FlxButton;
-	var key_monika:FlxButton;
 
 	var _pad:FlxVirtualPad;
 
@@ -221,12 +220,7 @@ class ChartingState extends MusicBeatState
         key_shift = new FlxButton(60, 200, "");
         key_shift.loadGraphic(Paths.image("key_shift")); //"assets/images/key_shift.png"
         key_shift.alpha = 0.75;
-        add(key_shift);
-
-        key_monika = new FlxButton(60, 340, "");
-        key_monika.loadGraphic(Paths.image("key_arrowmonika")); //"assets/images/key_arrowmonika.png"
-        key_monika.alpha = 0.75;
-        add(key_monika);		
+        add(key_shift);	
 
 		_pad = new FlxVirtualPad(RIGHT_FULL, NONE);
     	_pad.alpha = 0.75;
@@ -1432,7 +1426,7 @@ class ChartingState extends MusicBeatState
 		var noteType = 0;
 		if (FlxG.keys.pressed.ONE)
 			noteType = 1;
-		if (FlxG.keys.pressed.ALT || key_shift.pressed)
+		if (FlxG.keys.pressed.ALT)
 			noteType = 2;
 		if (n != null)
 			_song.notes[curSection].sectionNotes.push([n.strumTime, n.noteData, n.sustainLength, n.noteType]);
