@@ -136,24 +136,6 @@ class CustomControls extends Option
 	}
 
 }
-class About extends Option
-{
-	public function new(desc:String)
-	{
-		super();
-		description = desc;
-	}
-	public override function press():Bool
-	{
-		FlxG.switchState(new options.AboutState());
-		return true;
-	}
-	private override function updateDisplay():String
-	{
-		return "About";
-	}
-
-}
 class DownscrollOption extends Option
 {
 	public function new(desc:String)
@@ -273,6 +255,28 @@ class MiddleScroll extends Option
 	private override function updateDisplay():String
 	{
 		return  FlxG.save.data.middlescroll ? "Middlescroll: On" : "Middlescroll: Off";
+	}
+
+}
+class Circle extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+		FlxG.save.data.circle = !FlxG.save.data.circle;
+		
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return  FlxG.save.data.circle ? "Circle Notes: On" : "Circle Notes: Off";
 	}
 
 }

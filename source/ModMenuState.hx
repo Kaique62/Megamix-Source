@@ -29,7 +29,8 @@ class ModMenuState extends MusicBeatState
 		['Too-Slow', 'Endless', 'Execution'],
 		['High School Conflict', 'Bara No Yume', 'Your Demise'],
 		['Fixel', 'GenesisMK2', 'Overbearing'],
-		['Lo-Fight','Overhead', 'Ballistic'],			
+		['Lo-Fight','Overhead', 'Ballistic'],
+		['Carefree', 'Careless', 'Censory-Overload','Terminate']			
 	];
 	var curDifficulty:Int = 1;
 
@@ -41,7 +42,8 @@ class ModMenuState extends MusicBeatState
 		['none', 'bf', 'gf'],
 		['none', 'bf', 'gf'],
 		['none', 'none', 'none'],
-		['whitty', 'bf', 'gf'],									
+		['whitty', 'bf', 'gf'],
+		['qt', 'bf', 'gf'],									
 	];
 
 	var weekNames:Array<String> = [
@@ -51,6 +53,7 @@ class ModMenuState extends MusicBeatState
 		"Just Monika",
 		"what a B sides ripoff",
 		"Back Alley Blitz",	
+		"Cutie"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -164,7 +167,11 @@ class ModMenuState extends MusicBeatState
 				case 'garcello':
 					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 0.6));
 					weekCharacterThing.updateHitbox();
-					weekCharacterThing.y += 90;					
+					weekCharacterThing.y += 90;
+				case 'qt':
+					weekCharacterThing.setGraphicSize(Std.int(weekCharacterThing.width * 1.2));
+					weekCharacterThing.updateHitbox();
+					weekCharacterThing.x -= 90;												
 			}
 
 			grpWeekCharacters.add(weekCharacterThing);
@@ -407,7 +414,9 @@ class ModMenuState extends MusicBeatState
 			case 4:		
 				yellowBG.makeGraphic(FlxG.width, 400, 0xFF808080);
 			case 5:		
-				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFFA500);			
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFFA500);
+			case 6:
+				yellowBG.makeGraphic(FlxG.width, 400, 0xFFFF93EC);							
 		}
 
 		for (item in grpWeekText.members)

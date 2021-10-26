@@ -20,3 +20,8 @@ Lo-Fight:whitty:6
 Overhead:whitty:6
 Ballistic:whittyCrazy:6
 Ballistic-Old:whittyCrazy:6
+Carefree:qt:7
+Careless:qt:7
+Censory-Overload:robot:7
+Termination:robot:7
+Cessation:qt-kb:7

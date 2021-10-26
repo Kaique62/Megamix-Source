@@ -232,14 +232,14 @@ class MainMenuState extends MusicBeatState
 				fancyOpenURL("https://github.com/Kaique62?tab=repositories");
 			}
 			if (youtube.justPressed)
-				{
-					fancyOpenURL("https://www.youtube.com/channel/UChJrX90urlmG-UYS8QLiY_Q");
-				}			
+			{
+				fancyOpenURL("https://www.youtube.com/channel/UChJrX90urlmG-UYS8QLiY_Q");
+			}			
 			if (discord.justPressed)
-				{
-					fancyOpenURL("https://discord.gg/7XyJDywm67");
-					//https://discord.gg/7XyJDywm67
-				}			
+			{
+				fancyOpenURL("https://discord.gg/7XyJDywm67");
+				//https://discord.gg/7XyJDywm67
+			}			
 			if (controls.ACCEPT)
 			{
 				if (optionShit[curSelected] == 'donate')

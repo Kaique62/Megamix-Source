@@ -27,7 +27,7 @@ class KadeEngineData
 			FlxG.save.data.songPosition = false;
 
 		if (FlxG.save.data.fps == null)
-			FlxG.save.data.fps = false;
+			FlxG.save.data.fps = true;
 
 		if (FlxG.save.data.antiaslising == null)
 			FlxG.save.data.antiaslising = true;
@@ -55,7 +55,7 @@ class KadeEngineData
 			FlxG.save.data.fpsCap = 120;
 
 		if (FlxG.save.data.fpsCap > 285 || FlxG.save.data.fpsCap < 60)
-			FlxG.save.data.fpsCap = 120; // baby proof so you can't hard lock ur copy of kade engine
+			FlxG.save.data.fpsCap = 60; // baby proof so you can't hard lock ur copy of kade engine
 		
 		if (FlxG.save.data.scrollSpeed == null)
 			FlxG.save.data.scrollSpeed = 1;

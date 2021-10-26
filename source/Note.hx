@@ -63,7 +63,12 @@ class Note extends FlxSprite
 		switch (PlayState.SONG.noteStyle)
 		{
 			case 'pixel':
-				loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);
+				if (FlxG.save.data.circle){
+					loadGraphic(Paths.image('notes/CIRCLE_NOTE_assets-pixels','shared'), true, 17, 17);				
+				}
+				else{
+					loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);						
+				}				
 
 				if (noteType == 2)
 					{
@@ -82,7 +87,12 @@ class Note extends FlxSprite
 
 				if (isSustainNote)
 				{
-					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds','week6'), true, 7, 6);
+					if (FlxG.save.data.circle){
+						loadGraphic(Paths.image('notes/CIRCLE_NOTE_assets-pixels','shared'), true, 17, 17);				
+					}
+					else{
+						loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);						
+					}	
 
 					animation.add('purpleholdend', [4]);
 					animation.add('greenholdend', [6]);
@@ -103,7 +113,12 @@ class Note extends FlxSprite
 				case 2:
 					frames = Paths.getSparrowAtlas('staticNotes');
 				default:
+					if (FlxG.save.data.circle){
+						frames = Paths.getSparrowAtlas('notes/CIRCLE_NOTE_assets', 'shared');			
+					}
+					else{
 					frames = Paths.getSparrowAtlas('NOTE_assets');						
+					}
 				}
 
 				switch (noteType)

@@ -60,7 +60,18 @@ class HealthIcon extends FlxSprite
 		//Whitty
 		animation.add('whitty', [44, 44], 0, false, isPlayer);
 		animation.add('whittycrazy', [45, 46], 0, false, isPlayer);
-		animation.add('wide', [11, 11], 0, false, isPlayer);								
+		animation.add('wide', [11, 11], 0, false, isPlayer);
+		//QT
+		animation.add('robot', [47, 47], 0, false, isPlayer);
+		animation.add('robot_404', [47, 47], 0, false, isPlayer); //Just in case;
+		animation.add('robot_404-TERMINATION', [47, 47], 0, false, isPlayer); //Just in case;
+		animation.add('qt', [48, 48], 0, false, isPlayer);
+		animation.add('qt_annoyed', [48, 48], 0, false, isPlayer);
+		animation.add('qt-meme', [48, 48], 0, false, isPlayer);
+		animation.add('qt-kb', [49, 49], 0, false, isPlayer);
+		animation.add('qt_classic', [48, 48], 0, false, isPlayer);
+		animation.add('robot_classic', [47, 47], 0, false, isPlayer);
+		animation.add('robot_classic_404', [47, 47], 0, false, isPlayer);										
 		animation.play(char);
 		scrollFactor.set();
 
