@@ -56,7 +56,10 @@ class OptionsMenu extends MusicBeatState
 			new BG("BG"),
 			new Cutscenes("Enable And Disable Cutscenes"),
 			new MiddleScroll("Osu Players goes brrr"),
-			new Circle("Change The Note Style lmfao")		
+			new Circle("Change The Note Style lmfao"),
+			new HappyVersion("happy :)"),
+			new Splash("note splash xd"),
+			new HideHud("invisible hud for people who want to record smth on it")
 		]),	
 
 		new OptionCategory("Mobile settings", [

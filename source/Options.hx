@@ -196,6 +196,65 @@ class BG extends Option
 			return FlxG.save.data.bg ? "BG : ON" : "BG: OFF";
 		}
 }
+class Splash extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.notesplash = !FlxG.save.data.notesplash;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.notesplash ? "NOTE SPLASH : ON" : "NOTE SPLASH: OFF";
+		}
+}
+class HideHud extends Option
+{
+	public function new(desc:String)
+		{
+			super();
+			description = desc;
+		}
+	
+		public override function press():Bool
+		{
+			FlxG.save.data.hud = !FlxG.save.data.hud;
+			display = updateDisplay();
+			return true;
+		}
+	
+		private override function updateDisplay():String
+		{
+			return FlxG.save.data.hud ? "HUD : VISIBLE" : "HUD: INVISIBLE";
+		}
+}
+class HappyVersion extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+	public override function press():Bool
+	{
+		FlxG.save.data.happybob = !FlxG.save.data.happybob;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "happy version " + (!FlxG.save.data.happybob ? "off" : "on");
+	}
+}
 class Cutscenes extends Option
 {
 	public function new(desc:String)

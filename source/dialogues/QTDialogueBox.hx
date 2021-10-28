@@ -43,12 +43,6 @@ class QTDialogueBox extends FlxSpriteGroup
 		if(PlayState.isStoryMode){ //Added an extra check here to avoid music playing when in freeplay.
 			switch (PlayState.SONG.song.toLowerCase())
 			{
-				case 'senpai':
-					FlxG.sound.playMusic(Paths.music('Lunchbox'), 0);
-					FlxG.sound.music.fadeIn(1, 0, 0.8);
-				case 'thorns':
-					FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
-					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				case 'carefree':
 					FlxG.sound.playMusic(Paths.music('carefree-dialogue-loop', 'qt'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 0.1);
@@ -75,30 +69,6 @@ class QTDialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'senpai':
-				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
-				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
-				box.animation.addByIndices('normal', 'Text Box Appear', [4], "", 24);
-			case 'roses':
-				hasDialog = true;
-				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
-
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-senpaiMad');
-				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
-				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH', [4], "", 24);
-
-			case 'thorns':
-				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-evil');
-				box.animation.addByPrefix('normalOpen', 'Spirit Textbox spawn', 24, false);
-				box.animation.addByIndices('normal', 'Spirit Textbox spawn', [11], "", 24);
-
-				var face:FlxSprite = new FlxSprite(320, 170).loadGraphic(Paths.image('weeb/spiritFaceForward'));
-				face.setGraphicSize(Std.int(face.width * 6));
-				add(face);
-
-
 			//QT / Robot Week
 			case 'carefree' | 'careless' | 'cessation':
 				hasDialog = true;

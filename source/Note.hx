@@ -87,12 +87,7 @@ class Note extends FlxSprite
 
 				if (isSustainNote)
 				{
-					if (FlxG.save.data.circle){
-						loadGraphic(Paths.image('notes/CIRCLE_NOTE_assets-pixels','shared'), true, 17, 17);				
-					}
-					else{
-						loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels','week6'), true, 17, 17);						
-					}	
+					loadGraphic(Paths.image('weeb/pixelUI/arrowEnds','week6'), true, 7, 6);
 
 					animation.add('purpleholdend', [4]);
 					animation.add('greenholdend', [6]);
@@ -104,6 +99,7 @@ class Note extends FlxSprite
 					animation.add('redhold', [3]);
 					animation.add('bluehold', [1]);
 				}
+
 
 				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
 				updateHitbox();

@@ -15,7 +15,7 @@ class HealthIcon extends FlxSprite
 		
 		loadGraphic(Paths.image('iconGrid'), true, 150, 150);
 
-		antialiasing = true;
+		antialiasing = false;
 		animation.add('bf', [0, 1], 0, false, isPlayer);
 		animation.add('bf-car', [0, 1], 0, false, isPlayer);
 		animation.add('bf-christmas', [0, 1], 0, false, isPlayer);
@@ -27,9 +27,9 @@ class HealthIcon extends FlxSprite
 		animation.add('tankman', [8, 9], 0, false, isPlayer);
 		animation.add('face', [10, 11], 0, false, isPlayer);
 		animation.add('dad', [12, 13], 0, false, isPlayer);
-		animation.add('senpai', [22, 22], 0, false, isPlayer);
-		animation.add('senpai-angry', [22, 22], 0, false, isPlayer);
-		animation.add('spirit', [23, 23], 0, false, isPlayer);
+		animation.add('senpai', [23, 23], 0, false, isPlayer);
+		animation.add('senpai-angry', [23, 23], 0, false, isPlayer);
+		animation.add('spirit', [22, 22], 0, false, isPlayer);
 		animation.add('bf-old', [14, 15], 0, false, isPlayer);
 		animation.add('gf', [16], 0, false, isPlayer);
 		animation.add('gf-christmas', [16], 0, false, isPlayer);
@@ -53,7 +53,7 @@ class HealthIcon extends FlxSprite
 		animation.add('monika-angry', [42, 43], 0, false, isPlayer);
 		animation.add('bf-pixelangry', [21, 21], 0, false, isPlayer);
 		animation.add('duet', [38, 39], 0, false, isPlayer);	
-		animation.add('playablesenpai', [22, 22], 0, false, isPlayer);
+		animation.add('playablesenpai', [23, 23], 0, false, isPlayer);
 		//Jamey1!!11!!
 		animation.add('jamey1', [10, 11], 0, false, isPlayer);
 		animation.add('jamey2', [10, 11], 0, false, isPlayer);
@@ -62,16 +62,25 @@ class HealthIcon extends FlxSprite
 		animation.add('whittycrazy', [45, 46], 0, false, isPlayer);
 		animation.add('wide', [11, 11], 0, false, isPlayer);
 		//QT
-		animation.add('robot', [47, 47], 0, false, isPlayer);
-		animation.add('robot_404', [47, 47], 0, false, isPlayer); //Just in case;
-		animation.add('robot_404-TERMINATION', [47, 47], 0, false, isPlayer); //Just in case;
-		animation.add('qt', [48, 48], 0, false, isPlayer);
-		animation.add('qt_annoyed', [48, 48], 0, false, isPlayer);
-		animation.add('qt-meme', [48, 48], 0, false, isPlayer);
+		animation.add('robot', [47, 48], 0, false, isPlayer);
+		animation.add('robot_404', [47, 48], 0, false, isPlayer); //Just in case;
+		animation.add('robot_404-TERMINATION', [50, 50], 0, false, isPlayer); //Just in case;
+		animation.add('qt', [49, 49], 0, false, isPlayer);
+		animation.add('qt_annoyed', [49, 49], 0, false, isPlayer);
+		animation.add('qt-meme', [49, 49], 0, false, isPlayer);
 		animation.add('qt-kb', [49, 49], 0, false, isPlayer);
-		animation.add('qt_classic', [48, 48], 0, false, isPlayer);
-		animation.add('robot_classic', [47, 47], 0, false, isPlayer);
-		animation.add('robot_classic_404', [47, 47], 0, false, isPlayer);										
+		animation.add('qt_classic', [49, 49], 0, false, isPlayer);
+		animation.add('robot_classic', [47, 48], 0, false, isPlayer);
+		animation.add('robot_classic_404', [47, 48], 0, false, isPlayer);
+		//Bob
+		animation.add('bob', [51, 52], 0, false, isPlayer);
+		animation.add('angrybob', [53, 54], 0, false, isPlayer);
+		animation.add('hellbob', [55, 56], 0, false, isPlayer);
+		animation.add('ron', [57, 58], 0, false, isPlayer);
+		animation.add('glitched-bob', [61, 62], 0, false, isPlayer);
+		animation.add('gloop-bob', [59, 60], 0, false, isPlayer);
+		animation.add('little-man', [63, 64], 0, false, isPlayer);
+		animation.add('pizza', [65, 66], 0, false, isPlayer);												
 		animation.play(char);
 		scrollFactor.set();
 

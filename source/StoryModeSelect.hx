@@ -19,12 +19,13 @@ using StringTools;
 class StoryModeSelect extends MusicBeatState
 {
 	var logoBl:FlxSprite;
-	var menuItems:Array<String> = ['Normal', 'Mods'];
+	var menuItems:Array<String> = ['Normal', 'Mods', 'Bob'];
 	var text:FlxText;
 	var curSelected:Int = 0;
 	private var grpControls:FlxTypedGroup<Alphabet>;	
 	var gfDance:FlxSprite;
 	var whitty:FlxSprite;
+	var bob:FlxSprite;
 	var mod:Bool = false;
 	var danceLeft:Bool = false;
 
@@ -79,12 +80,19 @@ class StoryModeSelect extends MusicBeatState
 			
 		
 				whitty = new FlxSprite(FlxG.width * 0.55, FlxG.height * 0.07);
-				whitty.y += 720;
+				whitty.y += 740;
 				whitty.frames = Paths.getSparrowAtlas('whittyDanceTitle','shared');
 				whitty.animation.addByPrefix('dance', 'Whitty Dancing Beat', 30, false);
 				whitty.antialiasing = true;
-			//	whitty.visible = false;
-				add(whitty);			
+				add(whitty);
+		
+				bob = new FlxSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+				bob.frames = Paths.getSparrowAtlas('bob');
+				bob.animation.addByPrefix('idle', 'gfDancen', 24);
+				bob.animation.play('idle');
+				bob.antialiasing = true;
+				bob.y += 720;
+				add(bob);				
 
 				#if mobileC
 				addVirtualPad(UP_DOWN, A_B);
@@ -114,9 +122,15 @@ class StoryModeSelect extends MusicBeatState
 			case 0:
 				whittyOut();
 				gfIn();
+				bobOut();
 			case 1:
 				whittyIn();	
-				gfOut();					
+				gfOut();
+				bobOut();
+			case 2:
+				whittyOut();
+				gfOut();
+				bobIn();						
 		}
 
 
@@ -170,7 +184,9 @@ class StoryModeSelect extends MusicBeatState
 					case "Normal":
 						FlxG.switchState(new StoryMenuState());							
 					case "Mods":
-						FlxG.switchState(new ModMenuState());							
+						FlxG.switchState(new ModMenuState());
+					case 'Bob':
+						FlxG.switchState(new BobStoryMenuState());								
 				}
 			
 			}
@@ -187,11 +203,11 @@ class StoryModeSelect extends MusicBeatState
 	}
 	function whittyIn()
 		{
-			FlxTween.tween(whitty, {y: 60}, 0.5, {ease: FlxEase.expoInOut});
+			FlxTween.tween(whitty, {y: 70}, 0.5, {ease: FlxEase.expoInOut});
 		}	
 	function whittyOut()
 		{
-			FlxTween.tween(whitty, {y: 700}, 0.5, {ease: FlxEase.expoInOut});
+			FlxTween.tween(whitty, {y: 740}, 0.5, {ease: FlxEase.expoInOut});
 		}
 	function gfOut()
 		{
@@ -200,5 +216,13 @@ class StoryModeSelect extends MusicBeatState
 	function gfIn()
 		{
 			FlxTween.tween(gfDance, {y: 60}, 0.5, {ease: FlxEase.expoInOut});
-		}									
+		}
+	function bobIn()
+		{
+			FlxTween.tween(bob, {y: 40}, 0.5, {ease: FlxEase.expoInOut});
+		}	
+	function bobOut()
+		{
+			FlxTween.tween(bob, {y: 700}, 0.5, {ease: FlxEase.expoInOut});
+		}											
 }

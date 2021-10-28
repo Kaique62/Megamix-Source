@@ -36,7 +36,13 @@ class KadeEngineData
 			FlxG.save.data.gf = true;	
 		
 		if (FlxG.save.data.bg == null)
-			FlxG.save.data.bg = true;			
+			FlxG.save.data.bg = true;
+		
+		if (FlxG.save.data.notesplash == null)
+			FlxG.save.data.notesplash = true;
+		
+		if (FlxG.save.data.hud == null)
+			FlxG.save.data.hud = true;		
 
 		if (FlxG.save.data.middlescroll == null)
 			FlxG.save.data.middlescroll = false;		
