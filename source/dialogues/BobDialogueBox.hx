@@ -73,7 +73,7 @@ class BobDialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'withered':
+			case 'sunshine' | 'withered':
 				box = new FlxSprite(0, 0);
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('bob/dialogueBox-bob');

@@ -7801,33 +7801,20 @@ class PlayState extends MusicBeatState
 			}
 		}
 		//Animating every beat is too slow, so I'm doing this every step instead (previously was on every frame so it actually has time to animate through frames). -Haz
-		if (curSong.toLowerCase() == 'censory-overload'){
-			//Making GF scared for error section
-			if(curBeat>=704 && curBeat<832 && curStep % 2 == 0)
-			{
-				gf.playAnim('scared', true);
-					gf404.playAnim('scared', true);
-			}
-		}
+
 		//Midsong events for Termination (such as the sawblade attack)
 		else if (curSong.toLowerCase() == 'termination'){
 			
 			//For animating KB during the 404 section since he animates every half beat, not every beat.
-			if(qtIsBlueScreened)
+	/*		if(qtIsBlueScreened)
 			{
 				//Termination KB animates every 2 curstep instead of 4 (aka, every half beat, not every beat!)
 				if (SONG.notes[Math.floor(curStep / 16)].mustHitSection && !dad404.animation.curAnim.name.startsWith("sing") && curStep % 2 == 0)
 				{
-					dad404.dance();
-				}
-			}
+			//		dad404.dance();
+				} 
+			}*/
 
-			//Making GF scared for error section
-			if(curStep>=2816 && curStep<3328 && curStep % 2 == 0)
-			{
-				gf.playAnim('scared', true);
-					gf404.playAnim('scared', true);
-			}
 
 
 			switch (curStep)
